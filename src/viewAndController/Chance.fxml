@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewAndController.ChanceController">
+   <children>
+      <Group fx:id="getSpaceGroup">
+         <children>
+            <Label layoutX="37.0" layoutY="202.0" text="Apply to What Space?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="applicableSpaces" layoutX="75.0" layoutY="231.0" prefWidth="150.0" />
+         </children>
+      </Group>
+      <Label layoutX="64.0" layoutY="22.0" text="Chance Card" underline="true">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="performDone" layoutX="113.0" layoutY="304.0" mnemonicParsing="false" onAction="#closeScreen" text="Use Card" />
+      <Label fx:id="cardDesc" alignment="CENTER" layoutX="38.0" layoutY="105.0" prefHeight="70.0" prefWidth="225.0" text="Description" wrapText="true" />
+      <ComboBox fx:id="chanceCards" layoutX="76.0" layoutY="66.0" onAction="#changeCard" prefWidth="150.0" promptText="Chance Card" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1250.0" style="-fx-background-color: white;" stylesheets="@Game.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewAndController.GameController">
+   <children>
+      <Pane prefHeight="850.0" prefWidth="300.0" style="-fx-background-color: f3f3f3;">
+         <children>
+            <Label layoutX="26.0" layoutY="30.0" text="Turn of">
+               <font>
+                  <Font size="18.0" />
+               </font>selfStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            </Label>
+            <Pane fx:id="spaceDisplay" layoutX="80.0" layoutY="210.0" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <VBox fx:id="property_color" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                  <Label fx:id="property_name" alignment="CENTER" layoutY="35.0" prefHeight="40.0" prefWidth="150.0" text="Property Name" textOverrun="CLIP" wrapText="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Group fx:id="ownable">
+                     <children>
+                        <Label layoutX="10.0" layoutY="177.0" text="Owner" />
+                        <Label fx:id="propertyOwner" layoutX="83.0" layoutY="177.0" text="0" />
+                        <Label layoutX="14.0" layoutY="92.0" text="Rent" />
+                        <Label fx:id="propertyRent" alignment="CENTER" layoutX="110.0" layoutY="92.0" text="0" />
+                        <Group fx:id="nonProperty">
+                           <children>
+                              <Label layoutX="14.0" layoutY="109.0" text="# of Houses" />
+                              <Label fx:id="propertyHouses" alignment="CENTER" layoutX="110.0" layoutY="109.0" text="0" />
+                              <Label fx:id="propertyFootTraffic" alignment="CENTER" layoutX="110.0" layoutY="143.0" text="0" />
+                              <Label fx:id="propertyHotel" alignment="CENTER" layoutX="110.0" layoutY="126.0" text="0" />
+                              <Label layoutX="15.0" layoutY="143.0" text="Foot Traffic" />
+                              <Label layoutX="14.0" layoutY="126.0" text="# of Hotel" />
+                           </children>
+                        </Group>
+                        <Label layoutX="14.0" layoutY="75.0" text="Price" />
+                        <Label fx:id="propertyPrice" alignment="CENTER" layoutX="110.0" layoutY="75.0" text="0" />
+                     </children>
+                  </Group>
+               </children>
+            </Pane>
+            <Button fx:id="button0" layoutY="464.0" mnemonicParsing="false" onAction="#newTurn" prefHeight="39.0" prefWidth="300.0" stylesheets="@Game.css" text="Start Game">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="button1" layoutY="511.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="300.0" stylesheets="@Game.css" text="Action" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="button2" layoutY="558.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="300.0" stylesheets="@Game.css" text="Action" visible="false">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="logScreen" editable="false" layoutX="10.0" layoutY="640.0" prefHeight="200.0" prefWidth="280.0" wrapText="true" />
+            <Pane fx:id="spaceDisplay29" onMouseEntered="#onMouseHover" layoutX="29.0" layoutY="53.0" prefHeight="124.0" prefWidth="245.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <VBox fx:id="property_color29" prefHeight="23.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-color: black;">
+                     <children>
+                        <Label fx:id="currentPlayerName" alignment="CENTER" prefHeight="23.0" prefWidth="244.0" text="Player Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="34.0" text="Current Cash" />
+                  <Label fx:id="currentCash" layoutX="113.0" layoutY="34.0" text="0" />
+                  <TextArea fx:id="currentOwnedSpaces" editable="false" layoutX="24.0" layoutY="55.0" prefHeight="60.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="450.0" layoutY="80.0" prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="25.0" layoutY="33.0" prefHeight="34.0" prefWidth="51.0" text="Free Parking" wrapText="true" />
+               </children></Pane>
+            <Group>
+               <children>
+                  <Pane fx:id="spaceDisplay16" onMouseEntered="#onMouseHover" layoutX="170.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color16" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name16" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay21" onMouseEntered="#onMouseHover" layoutX="520.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color21" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name21" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay15" onMouseEntered="#onMouseHover" layoutX="100.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color15" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name15" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay20" onMouseEntered="#onMouseHover" layoutX="450.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color20" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name20" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay18" onMouseEntered="#onMouseHover" layoutX="310.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color18" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name18" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay17" onMouseEntered="#onMouseHover" layoutX="240.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color17" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name17" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay19" onMouseEntered="#onMouseHover" layoutX="380.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color19" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name19" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Group>
+            <Pane layoutX="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="35.0" layoutY="33.0" prefHeight="34.0" prefWidth="30.0" text="Jail" wrapText="true" />
+               </children></Pane>
+            <Group layoutX="295.0" layoutY="295.0" rotate="90.0">
+               <children>
+                  <Pane fx:id="spaceDisplay23" onMouseEntered="#onMouseHover" layoutX="170.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color23" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name23" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay28" onMouseEntered="#onMouseHover" layoutX="520.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color28" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name28" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay22" onMouseEntered="#onMouseHover" layoutX="100.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color22" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name22" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay27" onMouseEntered="#onMouseHover" layoutX="450.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color27" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name27" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay25" onMouseEntered="#onMouseHover" layoutX="310.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color25" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name25" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay24" onMouseEntered="#onMouseHover" layoutX="240.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color24" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name24" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay26" onMouseEntered="#onMouseHover" layoutX="380.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color26" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name26" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Group>
+            <Pane layoutX="590.0" layoutY="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="35.0" layoutY="42.0" text="Start" />
+               </children></Pane>
+            <Group layoutY="590.0" rotate="180.0">
+               <children>
+                  <Pane fx:id="spaceDisplay2" onMouseEntered="#onMouseHover" layoutX="170.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color2" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name2" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay7" onMouseEntered="#onMouseHover" layoutX="520.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color7" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name7" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay1" layoutX="100.0" onMouseEntered="#onMouseHover" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color1" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name1" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay6" onMouseEntered="#onMouseHover" layoutX="450.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color6" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name6" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay4" onMouseEntered="#onMouseHover" layoutX="310.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color4" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name4" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay3" onMouseEntered="#onMouseHover" layoutX="240.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color3" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name3" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay5" onMouseEntered="#onMouseHover" layoutX="380.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color5" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name5" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Group>
+            <Pane layoutY="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+               <children>
+                  <Label layoutX="15.0" layoutY="33.0" prefHeight="34.0" prefWidth="70.0" text="Community Service" wrapText="true" />
+               </children></Pane>
+            <Group layoutX="-295.0" layoutY="295.0" rotate="270.0">
+               <children>
+                  <Pane fx:id="spaceDisplay9" onMouseEntered="#onMouseHover" layoutX="170.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color9" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name9" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay14" onMouseEntered="#onMouseHover" layoutX="520.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color14" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name14" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay8" onMouseEntered="#onMouseHover" layoutX="100.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color8" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name8" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay13" onMouseEntered="#onMouseHover" layoutX="450.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color13" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name13" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay11" onMouseEntered="#onMouseHover" layoutX="310.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color11" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name11" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay10" onMouseEntered="#onMouseHover" layoutX="240.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color10" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name10" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="spaceDisplay12" onMouseEntered="#onMouseHover" layoutX="380.0" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                     <children>
+                        <VBox fx:id="property_color12" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name12" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Group>
+            <Group layoutX="20.0" layoutY="12.0">
+               <children>
+                  <Label layoutX="287.0" layoutY="341.0" rotate="-45.0" text="Taft Edition" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="214.0" layoutY="297.0" rotate="-45.0" text="MyEmpire" textAlignment="CENTER">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group layoutX="208.0" layoutY="-245.0">
+               <children>
+                  <Label alignment="CENTER" layoutY="715.0" prefHeight="35.0" prefWidth="150.0" text="Dice Roll:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="diceRollDisplay" alignment="CENTER" layoutX="150.0" layoutY="715.0" prefHeight="35.0" prefWidth="150.0" text="5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+         </children>
+      </Pane>
+      <Group>
+         <children>
+            <GridPane fx:id="property_players3" layoutX="830.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players4" layoutX="760.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players5" layoutX="690.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players7" layoutX="550.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players6" layoutX="620.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players1" layoutX="970.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players2" layoutX="900.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Group>
+      <Group layoutX="375.0" layoutY="-375.0" rotate="90.0">
+         <children>
+            <GridPane fx:id="property_players26" layoutX="830.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players25" layoutX="760.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players24" layoutX="690.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players22" layoutX="550.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players23" layoutX="620.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players28" layoutX="970.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players27" layoutX="900.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Group>
+      <Group layoutX="-375.0" layoutY="-375.0" rotate="90.0">
+         <children>
+            <GridPane fx:id="property_players10" layoutX="830.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players11" layoutX="760.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players12" layoutX="690.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players14" layoutX="550.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players13" layoutX="620.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players8" layoutX="970.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players9" layoutX="900.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Group>
+      <Group layoutY="-750.0">
+         <children>
+            <GridPane fx:id="property_players19" layoutX="830.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players18" layoutX="760.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players17" layoutX="690.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players15" layoutX="550.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players16" layoutX="620.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players21" layoutX="970.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane fx:id="property_players20" layoutX="900.0" layoutY="770.0" prefHeight="60.0" prefWidth="70.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </Group>
+      <GridPane fx:id="corner_players1" layoutX="1154.0" layoutY="692.0" prefHeight="60.0" prefWidth="70.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <GridPane fx:id="corner_players4" layoutX="1154.0" layoutY="102.0" prefHeight="60.0" prefWidth="70.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <GridPane fx:id="corner_players2" layoutX="371.0" layoutY="692.0" prefHeight="60.0" prefWidth="70.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <GridPane fx:id="corner_players3" layoutX="371.0" layoutY="102.0" prefHeight="60.0" prefWidth="70.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Label layoutX="324.0" layoutY="33.0" text="Bank">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="bankCash" layoutX="381.0" layoutY="33.0" text="0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

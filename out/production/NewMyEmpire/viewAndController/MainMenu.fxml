@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewAndController.MainMenuController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints fillHeight="false" />
+   </rowConstraints>
+   <children>
+      <Pane>
+         <children>
+            <ImageView fitHeight="350.0" fitWidth="622.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/DLSU.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="350.0" prefWidth="183.0" style="-fx-background-color: #F3F3F3;">
+               <children>
+                  <VBox layoutX="31.0" layoutY="26.0">
+                     <children>
+                        <Label layoutX="39.0" layoutY="46.0" text="MyEmpire">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="39.0" layoutY="82.0" text="Taft Edition" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="19.0" layoutY="285.0" mnemonicParsing="false" onAction="#quitGame" stylesheets="@MainMenu.css" text="Quit Game" />
+                  <Button layoutX="23.0" layoutY="103.0" mnemonicParsing="false" onAction="#startGame" stylesheets="@MainMenu.css" text="Play" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</GridPane>

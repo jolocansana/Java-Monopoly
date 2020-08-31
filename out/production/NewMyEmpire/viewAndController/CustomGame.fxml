@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1250.0" style="-fx-background-color: white;" stylesheets="@Game.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewAndController.CustomGameController">
+    <children>
+        <Pane prefHeight="850.0" prefWidth="300.0" style="-fx-background-color: f3f3f3;">
+            <children>
+                <Label layoutX="25.0" layoutY="40.0" text="Create">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="currentPlayerName" layoutX="25.0" layoutY="60.0" text="Custom Game">
+                    <font>
+                        <Font size="28.0" />
+                    </font>
+                </Label>
+                <Pane fx:id="spaceDisplay" layoutX="80.0" layoutY="133.0" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black; -fx-background-color: white;">
+                    <children>
+                        <VBox fx:id="property_color" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                        <Label fx:id="property_name" alignment="CENTER" layoutY="50.0" prefHeight="40.0" prefWidth="150.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </Pane>
+            <Label alignment="CENTER" layoutX="-3.0" layoutY="366.0" prefHeight="139.0" prefWidth="306.0" text="Click on the Space on the board where you want to place this Space Block" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="450.0" layoutY="80.0" prefHeight="690.0" prefWidth="690.0" style="-fx-background-color: white; -fx-border-color: black;">
+            <children>
+                <Pane prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+                    <children>
+                        <Label layoutX="25.0" layoutY="33.0" prefHeight="34.0" prefWidth="51.0" text="Free Parking" wrapText="true" />
+                    </children></Pane>
+                <Group>
+                    <children>
+                        <Pane fx:id="spaceDisplay16" layoutX="170.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color16" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name16" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay21" layoutX="520.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color21" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name21" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay15" layoutX="100.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color15" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name15" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay20" layoutX="450.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color20" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name20" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay18" layoutX="310.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color18" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name18" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay17" layoutX="240.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color17" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name17" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay19" layoutX="380.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color19" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name19" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </Group>
+                <Pane layoutX="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+                    <children>
+                        <Label layoutX="35.0" layoutY="33.0" prefHeight="34.0" prefWidth="30.0" text="Jail" wrapText="true" />
+                    </children></Pane>
+                <Group layoutX="295.0" layoutY="295.0" rotate="90.0">
+                    <children>
+                        <Pane fx:id="spaceDisplay23" layoutX="170.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color23" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name23" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay28" layoutX="520.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color28" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name28" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay22" layoutX="100.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color22" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name22" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay27" layoutX="450.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color27" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name27" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay25" layoutX="310.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color25" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name25" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay24" layoutX="240.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color24" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name24" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay26" layoutX="380.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color26" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name26" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </Group>
+                <Pane layoutX="590.0" layoutY="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+                    <children>
+                        <Label layoutX="35.0" layoutY="42.0" text="Start" />
+                    </children></Pane>
+                <Group layoutY="590.0" rotate="180.0">
+                    <children>
+                        <Pane fx:id="spaceDisplay2" layoutX="170.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color2" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name2" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay7" layoutX="520.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color7" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name7" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay1" layoutX="100.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color1" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name1" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay6" layoutX="450.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color6" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name6" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay4" layoutX="310.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color4" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name4" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay3" layoutX="240.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color3" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name3" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay5" layoutX="380.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color5" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name5" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </Group>
+                <Pane layoutY="590.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: black;">
+                    <children>
+                        <Label layoutX="15.0" layoutY="33.0" prefHeight="34.0" prefWidth="70.0" text="Community Service" wrapText="true" />
+                    </children></Pane>
+                <Group layoutX="-295.0" layoutY="295.0" rotate="270.0">
+                    <children>
+                        <Pane fx:id="spaceDisplay9" layoutX="170.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color9" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name9" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay14" layoutX="520.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color14" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name14" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay8" layoutX="100.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color8" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name8" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay13" layoutX="450.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color13" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name13" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay11" layoutX="310.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color11" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name11" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay10" layoutX="240.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color10" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name10" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="spaceDisplay12" layoutX="380.0" onMouseClicked="#getSourceClick" prefHeight="100.0" prefWidth="70.0" rotate="180.0" style="-fx-border-color: black; -fx-background-color: white;">
+                            <children>
+                                <VBox fx:id="property_color12" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: red; -fx-border-color: black;" />
+                                <Label fx:id="property_name12" alignment="CENTER" layoutX="1.0" layoutY="47.0" prefHeight="40.0" prefWidth="68.0" text="Property Name" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+                                    <font>
+                                        <Font size="9.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </Group>
+                <Group layoutX="20.0" layoutY="12.0">
+                    <children>
+                        <Label layoutX="287.0" layoutY="341.0" rotate="-45.0" text="Taft Edition" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="214.0" layoutY="297.0" rotate="-45.0" text="MyEmpire" textAlignment="CENTER">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Group>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
