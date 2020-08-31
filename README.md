@@ -1,2 +1,2 @@
 # Java-Monopoly
-DLSU CCSPROG3
+DLSU CSPROG3
